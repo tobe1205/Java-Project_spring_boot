@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.spring.mvc.practice.project.score.ScoreMapper">
+
+
+    <insert id = "save">
+        INSERT INTO score2
+        VALUES (seq_score.nextval, #{name}, #{kor}, #{eng}, #{math}, #{total}, #{average}, #{grade})
+    </insert>
+
+
+    <delete id="remove">
+        DELETE FROM score2
+        WHERE stu_num = #{stuNum}
+    </delete>
+
+
+    <resultMap id="scoreMap" type="com.spring.mvc.practice.project.score.Score">
+        <result property="name" column="stu_name" />
+        <result property="stuNum" column="stu_num" />
+    </resultMap>
+
+    <select id="findAll" resultMap="scoreMap">
+        SELECT*FROM score2
+    </select>
+
+    <select id="findOne" resultMap="scoreMap">
+        SELECT *FROM score2
+        WHERE stu_num = #{stuNum}
+    </select>
+
+
+</mapper>
