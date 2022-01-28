@@ -85,15 +85,15 @@
 
             <div class="bottom-group">
                 <div class="update-time">
-                    
+
                 </div>
 
                 <div class="btn-group btn-group-lg custom-btn-group" role="group">
 
-                    
+                    <c:if test="${b.account == loginUser.account || loginUser.auth == 'ADMIN'}">
 					<button id="mod-btn" type="button" class="btn btn-warning">수정</button>
 					<button id="del-btn" type="button" class="btn btn-danger">삭제</button>
-                    
+                    </c:if>
 
                     <button id="list-btn" type="button" class="btn btn-dark">목록</button>
                 </div>
@@ -108,7 +108,7 @@
                         <div class="card-body">
                             <div class="row">
 
-                                
+
 								<div class="col-md-9">
 									<div class="form-group">
 										<label for="newReplyText" hidden>댓글 내용</label>
@@ -125,8 +125,8 @@
 											class="btn btn-dark form-control">등록</button>
 									</div>
 								</div>
-                                
-                                 
+
+
 
                             </div>
                         </div>
@@ -142,15 +142,15 @@
                         <!-- 댓글 내용 바디 -->
                         <div id="replyCollapse" class="card">
                             <div id="replyData">
-                                <!-- 
-								< JS로 댓글 정보 DIV삽입 > 
+                                <!--
+								< JS로 댓글 정보 DIV삽입 >
 							-->
                             </div>
 
                             <!-- 댓글 페이징 영역 -->
                             <ul class="pagination justify-content-center">
-                                <!-- 
-								< JS로 댓글 페이징 DIV삽입 > 
+                                <!--
+								< JS로 댓글 페이징 DIV삽입 >
 							-->
                             </ul>
                         </div>

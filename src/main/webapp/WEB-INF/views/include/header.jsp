@@ -27,11 +27,18 @@
             <li><a href="/hello.jsp">Contact</a></li>
 
             
-			<li><a href="/login">Login</a></li>
-			<li><a href="/join">Join</a></li>
-            
+			<!-- 로그인 후 페이지 설정 -->
+            			<c:if test="${loginUser == null}">
+                                        <li><a href="/login">Login</a></li>
+                                        <li><a href="/join">Join</a></li>
+                                    </c:if>
 
-            
+                                    <c:if test="${loginUser != null}">
+                                        <li><a href="#">MyPage</a></li>
+                                        <li><a href="/sign-out">Logout</a></li>
+                                    </c:if>
+
+
              
         </ul>
     </nav>

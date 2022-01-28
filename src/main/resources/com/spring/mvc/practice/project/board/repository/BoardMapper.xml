@@ -20,8 +20,8 @@
     </select>
 
     <insert id="insertArticle">
-        INSERT INTO board2 (board_no,writer,title,content)
-        VALUES (seq_board2.nextval, #{writer}, #{title}, #{content})
+        INSERT INTO board2 (board_no,writer,title,content,account)
+        VALUES (seq_board2.nextval, #{writer}, #{title}, #{content}, #{account})
     </insert>
 
     <delete id="deleteArticle">
