@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 @Setter @Getter
 @ToString
 public class Score {
@@ -35,6 +38,19 @@ public class Score {
         this.math = math;
         calcTotal();
         changeMarkName();
+    }
+    //DB조회데이터 처리 생성자
+    public Score(ResultSet rs) throws SQLException {
+
+        this.stuNum = rs.getInt("stu_num");
+        this.name = rs.getString("stu_name");
+        this.kor = rs.getInt("kor");
+        this.eng = rs.getInt("eng");
+        this.math = rs.getInt("math");
+        this.total = rs.getInt("total");
+        this.average = rs.getDouble("average");
+        this.grade = Grade.valueOf(rs.getString("grade"));
+
     }
     //총점과 평균을 구하는 메서드
     public void calcTotal() {
